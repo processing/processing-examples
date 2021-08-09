@@ -20,7 +20,7 @@ void setup() {
   background(255);
 }
 
-void draw() { 
+void draw() {
   float pointillize = map(mouseX, 0, width, smallPoint, largePoint);
   int x = int(random(img.width));
   int y = int(random(img.height));
