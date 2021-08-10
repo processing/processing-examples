@@ -1,7 +1,7 @@
 # processing-examples
-Example files for "processing4" and "processing-website." 
+Example files for "processing4" and "processing-website" 
 
-There are many more examples included with the Processing software download than appear on the Processing.org website. If a change needs to be made with an example on the website, it should be changed here first. A script in the website build process copies over the PDE files from this repository. There are additional files that need to be changed within "processing-website":
+There are many more examples included with the Processing software download than appear on the Processing.org site. If a change needs to be made with an example on the website, it should be changed here. A script in the website build process copies over the PDE files from this repository. There are additional files that need to be changed within "processing-website":
 
 - A JSON file with the metadata for the example
 - A PNG image with output of the example
