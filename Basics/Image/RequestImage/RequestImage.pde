@@ -4,7 +4,7 @@
  * 
  * Shows how to use the requestImage() function with preloader animation. 
  * The requestImage() function loads images on a separate thread so that 
- * the sketch does not freeze while they load. It's useful when you are
+ * the sketch does not freeze while they load. It's useful when you are 
  * loading large images. These images are small for a quick download, but 
  * try it with your own huge images to get the full effect. 
  */
