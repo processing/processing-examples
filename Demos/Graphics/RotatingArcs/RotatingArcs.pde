@@ -15,7 +15,7 @@ int[] style;
 void setup() {
   size(1024, 768, P3D);
   background(255);
-  randomSeed(100);
+  //randomSeed(100);  // use this to get the same result each time
 
   pt = new float[6 * COUNT]; // rotx, roty, deg, rad, w, speed
   style = new int[2 * COUNT]; // color, render style
