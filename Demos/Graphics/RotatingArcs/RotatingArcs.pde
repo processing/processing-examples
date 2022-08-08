@@ -2,7 +2,7 @@
  * Geometry 
  * by Marius Watz. 
  * 
- * Using sin/cos lookup tables, blends colors, and draws a series of 
+ * Using sin/cos, blends colors, and draws a series of 
  * rotating arcs on the screen.
 */
 
@@ -27,28 +27,34 @@ void setup() {
     pt[index++] = random(TAU); // Random Y axis rotation
  
     pt[index++] = random(60,80); // Short to quarter-circle arcs
-    if(random(100)>90) pt[index] = floor(random(8,27)) * 10;
+    if (random(100) > 90) {
+      pt[index] = floor(random(8,27)) * 10;
+    }
  
     pt[index++] = int(random(2,50)*5); // Radius. Space them out nicely
  
     pt[index++] = random(4,32); // Width of band
-    if(random(100)>90) pt[index]=random(40,60); // Width of band
+    if (random(100) > 90) {
+      pt[index] = random(40,60); // Width of band
+    }
  
-    pt[index++] = radians(random(5,30))/5; // Speed of rotation
- 
-    // get colors
-    float prob = random(100);
-    
-    //if (prob < 30) {
-    //  style[i*2] = colorBlended(random(1), 255,0,100, 255,0,0, 210);
-    //} else if (prob < 70) {
-    //  style[i*2] = colorBlended(random(1), 0,153,255, 170,225,255, 210);
-    //} else if (prob < 90) {
-    //  style[i*2] = colorBlended(random(1), 200,255,0, 150,255,0, 210);
-    //} else {
-    //  style[i*2] = color(255,255,255, 220);
-    //}
+    pt[index++] = radians(random(5,30)) / 5; // Speed of rotation
 
+    /*
+    // alternate color scheme
+    float prob = random(100);
+    if (prob < 30) {
+      style[i*2] = colorBlended(random(1), 255,0,100, 255,0,0, 210);
+    } else if (prob < 70) {
+      style[i*2] = colorBlended(random(1), 0,153,255, 170,225,255, 210);
+    } else if (prob < 90) {
+      style[i*2] = colorBlended(random(1), 200,255,0, 150,255,0, 210);
+    } else {
+      style[i*2] = color(255,255,255, 220);
+    }
+    */
+
+    float prob = random(100);
     if (prob < 50) {
       style[i*2] = colorBlended(random(1), 200,255,0, 50,120,0, 210);
     } else if (prob <90) {
@@ -65,32 +71,31 @@ void setup() {
 void draw() { 
   background(0);
  
-  int index=0;
   translate(width/2, height/2, 0);
   rotateX(PI/6);
   rotateY(PI/6);
  
+  int index = 0;
   for (int i = 0; i < COUNT; i++) {
     pushMatrix();
- 
     rotateX(pt[index++]);
     rotateY(pt[index++]);
  
-    if(style[i*2+1]==0) {
+    if (style[i*2+1] == 0) {
       stroke(style[i*2]);
       noFill();
       strokeWeight(1);
-      arcLine(0,0, pt[index++],pt[index++],pt[index++]);
-    }
-    else if(style[i*2+1]==1) {
+      arcLine(0, 0, pt[index++], pt[index++], pt[index++]);
+      
+    } else if(style[i*2+1]==1) {
       fill(style[i*2]);
       noStroke();
-      arcLineBars(0,0, pt[index++],pt[index++],pt[index++]);
-    }
-    else {
+      arcLineBars(0, 0, pt[index++], pt[index++], pt[index++]);
+    
+    } else {
       fill(style[i*2]);
       noStroke();
-      arc(0,0, pt[index++],pt[index++],pt[index++]);
+      arc(0, 0, pt[index++], pt[index++], pt[index++]);
     }
  
     // increase rotation
@@ -98,10 +103,6 @@ void draw() {
     pt[index-4] += pt[index++]/20;
  
     popMatrix();
-  }
-  if (frameCount == 100) {
-    saveFrame("newer.png");
-    exit();
   }
 }
 
@@ -119,16 +120,15 @@ int colorBlended(float fract,
 
  
 // Draw arc line
-void arcLine(float x,float y,float degrees,float radius,float w) {
-  //int a=(int)(min (deg/SINCOS_PRECISION,SINCOS_LENGTH-1));
-  int numlines=(int)(w/2);
+void arcLine(float x, float y, float degrees, float radius, float w) {
+  int lineCount = floor(w/2);
  
-  for (int j=0; j<numlines; j++) {
+  for (int j = 0; j < lineCount; j++) {
     beginShape();
     for (int i = 0; i < degrees; i++) {  // one step for each degree
       float angle = radians(i);
-      //vertex(cosLUT[i]*rad+x,sinLUT[i]*rad+y);
-      vertex(x + radius*cos(angle), y + radius*sin(angle));
+      vertex(x + radius*cos(angle), 
+             y + radius*sin(angle));
     }
     endShape();
     radius += 2;
@@ -137,27 +137,20 @@ void arcLine(float x,float y,float degrees,float radius,float w) {
 
  
 // Draw arc line with bars
-void arcLineBars(float x, float y,float degrees, float radius, float w) {
-  //int a = int((min (deg/SINCOS_PRECISION,SINCOS_LENGTH-1)));
-  //a /= 4;
- 
+void arcLineBars(float x, float y, float degrees, float radius, float w) {
   beginShape(QUADS);
-  //for (int i=0; i<a; i+=4) {
   for (int i = 0; i < degrees/4; i += 4) {  // degrees, but in steps of 4
     float angle = radians(i);
-    //vertex(cosLUT[i]*(rad)+x,sinLUT[i]*(rad)+y);
-    vertex(x + radius*cos(angle), 
-           y + radius*sin(angle));
-    //vertex(cosLUT[i]*(rad+w)+x,sinLUT[i]*(rad+w)+y);
+    vertex(x + radius * cos(angle), 
+           y + radius * sin(angle));
     vertex(x + (radius+w) * cos(angle),
            y + (radius+w) * sin(angle));
+
     angle = radians(i+2);
-    //vertex(cosLUT[i+2]*(rad+w)+x,sinLUT[i+2]*(rad+w)+y);
     vertex(x + (radius+w) * cos(angle),
            y + (radius+w) * sin(angle));
-    //vertex(cosLUT[i+2]*(rad)+x,sinLUT[i+2]*(rad)+y);
-    vertex(x + radius*cos(angle), 
-           y + radius*sin(angle));
+    vertex(x + radius * cos(angle), 
+           y + radius * sin(angle));
   }
   endShape();
 }
@@ -165,16 +158,13 @@ void arcLineBars(float x, float y,float degrees, float radius, float w) {
  
 // Draw solid arc
 void arc(float x, float y, float degrees, float radius, float w) {
-  //int a = int(min (deg/SINCOS_PRECISION,SINCOS_LENGTH-1));
   beginShape(QUAD_STRIP);
   for (int i = 0; i < degrees; i++) {
     float angle = radians(i);
-    //vertex(cosLUT[i]*(rad)+x,sinLUT[i]*(rad)+y);
-    vertex(x + radius*cos(angle),
-           y + radius*sin(angle));
-    //vertex(cosLUT[i]*(rad+w)+x,sinLUT[i]*(rad+w)+y);
-    vertex(x + (radius+w)*cos(angle),
-           y + (radius+w)*sin(angle));
+    vertex(x + radius * cos(angle),
+           y + radius * sin(angle));
+    vertex(x + (radius+w) * cos(angle),
+           y + (radius+w) * sin(angle));
   }
   endShape();
 }
