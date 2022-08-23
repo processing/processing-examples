@@ -10,7 +10,7 @@ PrintWriter output;
 
 void setup() 
 {
-  size(200, 200);
+  size(640, 360);
   // Create a new file in the sketch directory
   output = createWriter("positions.txt");
   frameRate(12);

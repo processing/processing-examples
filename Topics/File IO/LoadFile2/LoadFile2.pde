@@ -15,13 +15,14 @@ int num = 9; // Display this many entries on each screen.
 int startingEntry = 0;  // Display from this entry number
 
 void setup() {
-  size(200, 200);
+  size(640, 360);
   fill(255);
   noLoop();
-  
+
   body = loadFont("TheSans-Plain-12.vlw");
   textFont(body);
-  
+  textSize(20);
+
   lines = loadStrings("cars2.tsv");
   records = new Record[lines.length];
   for (int i = 0; i < lines.length; i++) {
@@ -47,9 +48,9 @@ void draw() {
 }
 
 void mousePressed() {
-  startingEntry += num; 
+  startingEntry += num;
   if (startingEntry > records.length) {
     startingEntry = 0;  // go back to the beginning
-  } 
+  }
   redraw();
 }

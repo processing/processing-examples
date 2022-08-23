@@ -12,7 +12,7 @@ int[] y = new int[0];
 
 void setup() 
 {
-  size(200, 200);
+  size(640, 360);
 }
 
 void draw() 
@@ -45,4 +45,3 @@ void keyPressed() { // Press a key to save the data
   saveStrings("lines.txt", lines);
   exit(); // Stop the program
 }
-
