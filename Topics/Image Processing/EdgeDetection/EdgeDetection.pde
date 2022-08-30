@@ -4,10 +4,17 @@
  * A high-pass filter sharpens an image. This program analyzes every
  * pixel in an image in relation to the neighboring pixels to sharpen 
  * the image. This example is currently not accurate in JavaScript mode.
+ *
+ * This kernel describes a "Laplacian Edge Detector".  It is effective,
+ * but sensitive to noise.  One common enhancement is to add a Gaussian
+ * blur to the source image first, as in
+ *   img.filter(BLUR);
+ * to reduce impact of noise on the output.  The combination is often called
+ * "Laplace of Gaussian", or "LoG" for short.
  */
 
 float[][] kernel = {{ -1, -1, -1}, 
-                    { -1,  9, -1}, 
+                    { -1,  8, -1}, 
                     { -1, -1, -1}};
                     
 PImage img;
@@ -26,7 +33,7 @@ void draw() {
   // Loop through every pixel in the image.
   for (int y = 1; y < img.height-1; y++) { // Skip top and bottom edges
     for (int x = 1; x < img.width-1; x++) { // Skip left and right edges
-      float sum = 0; // Kernel sum for this pixel
+      float sum = 127.5; // Kernel sum for this pixel
       for (int ky = -1; ky <= 1; ky++) {
         for (int kx = -1; kx <= 1; kx++) {
           // Calculate the adjacent pixel for this kernel point
