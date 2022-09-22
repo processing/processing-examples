@@ -21,7 +21,7 @@ void setup() {
   childA.bckColor = color(227, 173, 37);
   
   // Change location of parent window after creating child window.
-  surface.setLocation(100, 0);
+  windowMove(100, 0);
 }
 
 void draw() {
@@ -35,7 +35,7 @@ void draw() {
   shape(pointer);
 
   String txt = String.format("Window 1   %6.2fps", frameRate);
-  surface.setTitle(txt);
+  windowTitle(txt);
 }
 
 public void keyPressed() {
@@ -70,8 +70,8 @@ class ChildApplet extends PApplet {
   }
 
   void setup() {
-    surface.setLocation(vx, vy);
-    surface.setResizable(true);
+    windowMove(vx, vy);
+    windowResizable(true);
   }
 
   void draw() {
@@ -83,6 +83,6 @@ class ChildApplet extends PApplet {
     shape(pointer);
 
     String txt = String.format("Window %d   %6.2fps", id, frameRate);
-    surface.setTitle(txt);
+    windowTitle(txt);
   }
 }

@@ -10,7 +10,7 @@ void settings() {
 }
 
 void setup() {
-  surface.setTitle("Main sketch");
+  windowTitle("Main sketch");
   arcball = new Arcball(this, 300);
   child = new ChildApplet();
 }
@@ -56,7 +56,7 @@ class ChildApplet extends PApplet {
     smooth();
   }
   public void setup() { 
-    surface.setTitle("Child sketch");
+    windowTitle("Child sketch");
     arcball2 = new Arcball(this, 300);
   }
 

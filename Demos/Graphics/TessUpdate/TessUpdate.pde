@@ -60,5 +60,5 @@ void draw() {
   shape(group);
     
   String txt = String.format("FPS: %6.2fps", frameRate);
-  surface.setTitle(txt);
+  windowTitle(txt);
 }
