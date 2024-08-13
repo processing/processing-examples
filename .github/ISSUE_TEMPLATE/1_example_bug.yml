@@ -1,0 +1,41 @@
+name: 🛠️ Example Issue Report
+description: Use this template to report issues with specific examples in the Processing Examples repository.
+body:
+- type: textarea
+  id: example_location
+  attributes:
+    label: Example Location
+    description: Specify the path where the example can be found (e.g., `Basic > Data > CharacterStrings`).
+  validations:
+    required: true
+- type: dropdown
+  id: issue_type
+  attributes:
+    label: Type of Issue
+    description: Select the type of issue you are encountering with the example.
+    multiple: true
+    options:
+      - Example Comments
+      - Missing File(s)
+      - Syntax Error(s)
+      - Other (specify if possible)
+  validations:
+    required: true
+- type: textarea
+  attributes:
+    label: Describe the Issue
+    description: Provide a detailed description of the issue.
+  validations:
+    required: true
+- type: textarea
+  attributes:
+    label: Suggested Fix
+    description: If possible, suggest a fix or describe how the example could be improved.
+  validations:
+    required: false
+- type: textarea
+  attributes:
+    label: Additional context
+    description: Add any other context or relevant information that could assist in resolving the issue.
+  validations:
+    required: false
