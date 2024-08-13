@@ -1,7 +1,7 @@
 name: 🛠️ Example Issue Report
 description: Use this template to report issues with specific examples in the Processing Examples repository.
 body:
-- type: textarea
+- type: input
   id: example_location
   attributes:
     label: Example Location
