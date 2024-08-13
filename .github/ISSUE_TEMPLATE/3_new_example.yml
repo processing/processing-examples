@@ -1,0 +1,50 @@
+name: 🌟 Suggest a New Example
+description: Use this template to suggest a new example for inclusion in the Processing Examples repository.
+body:
+- type: input
+  id: example_title
+  attributes:
+    label: Proposed Example Title
+    description: Provide a title for the proposed example.
+  validations:
+    required: true
+- type: textarea
+  attributes:
+    label: Example Description
+    description: Describe the proposed example. Include details of what it would demonstrate and how it would be implemented.
+  validations:
+    required: true
+- type: textarea
+  attributes:
+    label: Value and Necessity
+    description: Explain why this example is valuable and needed. Describe the specific concepts or techniques it will illustrate and why they are important for users to understand.
+  validations:
+    required: true
+- type: textarea
+  attributes:
+    label: Initial Code
+    description: If possible, provide initial code for the proposed example.
+    value: |
+      /**
+       * Example Title
+       * by Your Name
+       * 
+       * Briefly describe what this example demonstrates and any instructions on how to interact with it.
+       */
+      
+      void setup() {
+        size(640, 360);
+        // Your setup code here
+      }
+      
+      void draw() {
+        // Your drawing code here
+      }
+  validations:
+    required: false
+- type: textarea
+  attributes:
+    label: Additional context
+    description: Provide any other context, similar existing examples, or any additional information that could support your suggestion.
+  validations:
+    required: false
