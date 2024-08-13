@@ -1,4 +1,4 @@
-name: 🛠️ Example Issue Report
+name: 🐛 Example Bug Report
 description: Use this template to report issues with specific examples in the Processing Examples repository.
 body:
 - type: input
