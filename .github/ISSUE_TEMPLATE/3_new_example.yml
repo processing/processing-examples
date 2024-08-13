@@ -32,6 +32,7 @@ body:
     label: Initial Code
     description: If possible, provide initial code for the proposed example.
     value: |
+      ```
       /**
        * Example Title
        * by Your Name
@@ -47,6 +48,7 @@ body:
       void draw() {
         // Your drawing code here
       }
+      ```
   validations:
     required: false
 - type: textarea
