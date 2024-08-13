@@ -5,7 +5,14 @@ body:
   id: example_title
   attributes:
     label: Proposed Example Title
-    description: Provide a title for the proposed example.
+    description: Give a descriptive title to your proposed example.
+  validations:
+    required: true
+- type: input
+  id: example_category
+  attributes:
+    label: Example Category
+    description: What is the appropriate category for this new example? (e.g., Topics › Cellular Automata).
   validations:
     required: true
 - type: textarea
