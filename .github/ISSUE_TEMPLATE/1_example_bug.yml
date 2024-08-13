@@ -5,7 +5,7 @@ body:
   id: example_location
   attributes:
     label: Example Location
-    description: Specify the path where the example can be found (e.g., `Basic > Data > CharacterStrings`).
+    description: Specify the path where the example can be found (e.g., Basic › Data › CharacterStrings).
   validations:
     required: true
 - type: dropdown
