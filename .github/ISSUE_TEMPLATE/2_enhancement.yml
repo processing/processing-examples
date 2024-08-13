@@ -1,0 +1,34 @@
+name: 💡 Suggest an Enhancement
+description: Use this template to suggest enhancements or improvements to existing examples in the Processing Examples repository.
+body:
+- type: input
+  id: example_location
+  attributes:
+    label: Example Location
+    description: Specify the path of the example (e.g., `Basic > Data > CharacterStrings`).
+  validations:
+    required: true
+- type: textarea
+  attributes:
+    label: Current Behavior
+    description: Describe the current behavior or functionality of the example.
+  validations:
+    required: true
+- type: textarea
+  attributes:
+    label: Suggested Enhancement
+    description: Describe the enhancement or improvement you propose. Include code samples as needed.
+  validations:
+    required: true
+- type: textarea
+  attributes:
+    label: Benefits of Enhancement
+    description: Explain the benefits or added value of your suggested enhancement.
+  validations:
+    required: true
+- type: textarea
+  attributes:
+    label: Additional context
+    description: Add any other context, examples from other sources, or additional information that could assist in understanding your suggestion.
+  validations:
+    required: false
