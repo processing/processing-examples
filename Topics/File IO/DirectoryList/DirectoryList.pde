@@ -2,11 +2,11 @@
  * Listing files in directories and subdirectories
  * by Daniel Shiffman.  
  * 
- * This example has three functions:<br />
- * 1) List the names of files in a directory<br />
- * 2) List the names along with metadata (size, lastModified)<br /> 
- *    of files in a directory<br />
- * 3) List the names along with metadata (size, lastModified)<br />
+ * This example has three functions:
+ * 1) List the names of files in a directory
+ * 2) List the names along with metadata (size, lastModified) 
+ *    of files in a directory
+ * 3) List the names along with metadata (size, lastModified)
  *    of files in a directory and all subdirectories (using recursion) 
  */
 
